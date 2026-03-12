@@ -34,7 +34,7 @@ The core PROMPT platform. Contains:
 - **`docs/`** — Docusaurus documentation site
 
 **Live instance**: [https://prompt.aet.cit.tum.de/](https://prompt.aet.cit.tum.de/)
-**Docs**: [https://ls1intum.github.io/prompt2/](https://ls1intum.github.io/prompt2/)
+**Docs**: [https://ls1intum.github.io/prompt2/](https://ls1intum.github.io/prompt2/) _(hosted under `ls1intum.github.io` for historical reasons; the project org is `prompt-edu`)_
 **Development guide**: [`AGENTS.md`](https://github.com/prompt-edu/prompt/blob/main/AGENTS.md)
 
 ---

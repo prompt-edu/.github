@@ -31,7 +31,7 @@ PROMPT supports this mission by providing a **modular, extensible course managem
 
 ## Greek Gods as System Names 🏛️
 
-At the Research Group Applied Education Technologies, we have a long-standing tradition of naming our systems after Greek gods—each name reflecting the system's purpose, strengths, and character.
+At the Research Group Applied Education Technologies, we have a long-standing tradition of naming our systems after Greek gods—each name reflecting the system's purpose, strengths, and character. These are related research-group tools maintained by the same team — the linked repositories below are under the `ls1intum` organization, while PROMPT lives here in `prompt-edu`, as part of the same ecosystem.
 
 | Name        | Myth                                                                                         | Our System                                                                                                                               |
 | ----------- | -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
@@ -49,7 +49,7 @@ At the Research Group Applied Education Technologies, we have a long-standing tr
 - 🚀 **Live PROMPT Instance**: [prompt.aet.cit.tum.de](https://prompt.aet.cit.tum.de/)
 - 💬 **Discord Community**: [discord.gg/eybNUqD8gf](https://discord.gg/eybNUqD8gf)
 
-Each repository includes a `README.md` with specific details, setup instructions, contribution guidelines, and technical references.
+Each repository includes a `README.md` with details, setup instructions, contribution guidelines, and technical references.
 
 ## Fun Facts 🎉
 
