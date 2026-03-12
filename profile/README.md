@@ -31,7 +31,7 @@ PROMPT supports this mission by providing a **modular, extensible course managem
 
 ## Resources 📚
 
-- 🌐 **AET Research Group**: [www.aet.cit.tum.de](https://www.aet.cit.tum.de/)
+- 🌐 **AET Research Group**: [www.aet.cit.tum.de](https://aet.cit.tum.de)
 - 🐙 **AET GitHub Organization**: [github.com/ls1intum](https://github.com/ls1intum)
 - 📖 **PROMPT Documentation**: [ls1intum.github.io/prompt2](https://ls1intum.github.io/prompt2/)
 - 🚀 **Live PROMPT Instance**: [prompt.aet.cit.tum.de](https://prompt.aet.cit.tum.de/)
