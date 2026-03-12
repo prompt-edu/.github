@@ -22,12 +22,12 @@ PROMPT supports this mission by providing a **modular, extensible course managem
 
 ## Our Repositories 📦
 
-| Repository                                                               | Description                                                                                 |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
-| [prompt](https://github.com/prompt-edu/prompt)                           | Main PROMPT platform — React micro-frontend shell + Go microservices                        |
-| [prompt-intro-course](https://github.com/prompt-edu/prompt-intro-course) | Standalone intro programming course component and server                                    |
-| [prompt-lib](https://github.com/prompt-edu/prompt-lib)                   | Shared frontend libraries: `@tumaet/prompt-ui-components` and `@tumaet/prompt-shared-state` |
-| [prompt-sdk](https://github.com/prompt-edu/prompt-sdk)                   | Go SDK for authentication middleware, resolution helpers, and shared domain types           |
+| Repository                                                               | Description                                                                               |
+| ------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------- |
+| [prompt](https://github.com/prompt-edu/prompt)                           | Main PROMPT platform — React micro-frontend shell + Go microservices                      |
+| [prompt-intro-course](https://github.com/prompt-edu/prompt-intro-course) | Standalone intro programming course component and server                                  |
+| [prompt-lib](https://github.com/prompt-edu/prompt-lib)                   | Shared client libraries: `@tumaet/prompt-ui-components` and `@tumaet/prompt-shared-state` |
+| [prompt-sdk](https://github.com/prompt-edu/prompt-sdk)                   | Go SDK for authentication middleware, resolution helpers, and shared domain types         |
 
 ## Greek Gods as System Names 🏛️
 
