@@ -5,7 +5,7 @@
 
 ## About Us 👥
 
-Welcome to the GitHub organization of **prompt-edu**, home of the **PROMPT** platform and its ecosystem. PROMPT is an open-source course management platform developed by the [Research Group Applied Education Technologies (AET)](https://www.aet.cit.tum.de/) at the **Technical University of Munich (TUM)**.
+Welcome to the GitHub organization of **prompt-edu**, home of the **PROMPT** platform and its ecosystem. PROMPT is an open-source course management platform developed by the [Research Group Applied Education Technologies (AET)](https://aet.cit.tum.de) at the **Technical University of Munich (TUM)**.
 
 AET is a team dedicated to advancing the fields of applied software engineering and education technologies. Our mission is to address the complex challenges of a rapidly changing world through agile methods and continuous software engineering. We love to build open-source software for education purposes and to advance the field with innovative technologies—involving artificial intelligence with a focus on usability, user experience, performance, and scalability.
 
