@@ -12,7 +12,7 @@ The organization is split into four repositories, each with a focused responsibi
 
 ```text
 prompt-edu/
-├── prompt                  # Main platform: shell app + all microservices
+├── prompt                  # Main platform: shell app + core platform services
 ├── prompt-intro-course     # Standalone intro-course module (client + server)
 ├── prompt-lib              # Shared frontend NPM packages
 └── prompt-sdk              # Shared Go SDK for backend services
