@@ -29,23 +29,11 @@ PROMPT supports this mission by providing a **modular, extensible course managem
 | [prompt-lib](https://github.com/prompt-edu/prompt-lib)                   | Shared client libraries: `@tumaet/prompt-ui-components` and `@tumaet/prompt-shared-state` |
 | [prompt-sdk](https://github.com/prompt-edu/prompt-sdk)                   | Go SDK for authentication middleware, resolution helpers, and shared domain types         |
 
-## Greek Gods as System Names 🏛️
-
-At the Research Group Applied Education Technologies, we have a long-standing tradition of naming our systems after Greek gods—each name reflecting the system's purpose, strengths, and character. These are related research-group tools maintained by the same team — the linked repositories below are under the `ls1intum` organization, while PROMPT lives here in `prompt-edu`, as part of the same ecosystem.
-
-| Name        | Myth                                                                                         | Our System                                                                                                                               |
-| ----------- | -------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| **Artemis** | Goddess of the hunt, wilderness, and the moon—independent protector.                         | [Artemis](https://github.com/ls1intum/Artemis) empowers students to become independent learners through automated feedback and guidance. |
-| **Apollon** | God of the sun, music, and reason; Artemis's twin, representing clarity and order.           | [Apollon](https://github.com/ls1intum/Apollon) supports UML modeling with intuitive, structured tools.                                   |
-| **Iris**    | Goddess of the rainbow and divine messenger, bridging communication between gods and humans. | [Iris](https://github.com/ls1intum/Iris) is an AI tutor that ensures knowledge is conveyed clearly and effectively.                      |
-| **Athena**  | Goddess of wisdom, strategy, and craftsmanship.                                              | [Athena](https://github.com/ls1intum/Athena) enables automatic feedback even for creative and open-ended exercises.                      |
-| **Atlas**   | The Titan who carried the heavens—endurance, strength, navigation.                           | [Atlas](https://github.com/ls1intum/Atlas) supports competency-based and adaptive learning pathways.                                     |
-| **PROMPT**  | —                                                                                            | Our platform for project-oriented, modular teaching—naming students' journey from applicant to team member.                              |
-
 ## Resources 📚
 
 - 🌐 **AET Research Group**: [www.aet.cit.tum.de](https://www.aet.cit.tum.de/)
-- 📖 **PROMPT Documentation**: [ls1intum.github.io/prompt2](https://ls1intum.github.io/prompt2/)
+- � **AET GitHub Organization**: [github.com/ls1intum](https://github.com/ls1intum)
+- �📖 **PROMPT Documentation**: [ls1intum.github.io/prompt2](https://ls1intum.github.io/prompt2/)
 - 🚀 **Live PROMPT Instance**: [prompt.aet.cit.tum.de](https://prompt.aet.cit.tum.de/)
 - 💬 **Discord Community**: [discord.gg/eybNUqD8gf](https://discord.gg/eybNUqD8gf)
 
