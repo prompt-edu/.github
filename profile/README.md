@@ -33,7 +33,7 @@ PROMPT supports this mission by providing a **modular, extensible course managem
 
 - 🌐 **AET Research Group**: [www.aet.cit.tum.de](https://aet.cit.tum.de)
 - 🐙 **AET GitHub Organization**: [github.com/ls1intum](https://github.com/ls1intum)
-- 📖 **PROMPT Documentation**: [ls1intum.github.io/prompt2](https://prompt-edu.github.io/prompt/)
+- 📖 **PROMPT Documentation**: [prompt-edu.github.io/prompt](https://prompt-edu.github.io/prompt/)
 - 🚀 **Live PROMPT Instance**: [prompt.aet.cit.tum.de](https://prompt.aet.cit.tum.de/)
 - 💬 **Discord Community**: [discord.gg/eybNUqD8gf](https://discord.gg/eybNUqD8gf)
 
@@ -56,4 +56,4 @@ For a full overview of all repositories, architecture, and the platform's design
 
 ---
 
-> PROMPT is developed at the [Research Group Applied Education Technologies (AET)](https://www.aet.cit.tum.de/), Technical University of Munich.
+> PROMPT is developed at the [Research Group Applied Education Technologies (AET)](https://aet.cit.tum.de/), Technical University of Munich.

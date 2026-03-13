@@ -107,7 +107,7 @@ Tests must pass before a PR will be merged.
 ## 💬 Community & Support
 
 - **Discord**: [Join our server](https://discord.gg/eybNUqD8gf) for real-time discussions, help, and planning.
-- **Documentation**: [ls1intum.github.io/prompt2](https://prompt-edu.github.io/prompt/)
+- **Documentation**: [prompt-edu.github.io/prompt](https://prompt-edu.github.io/prompt/)
 - **Issues**: Use the GitHub Issues tracker in the relevant repository.
 
 ---
@@ -120,4 +120,4 @@ By contributing, you agree to abide by our [Code of Conduct](./CODE_OF_CONDUCT.m
 
 Thank you for helping us build great open-source software for education! 🚀
 
-> PROMPT is developed at the [Research Group Applied Education Technologies (AET)](https://www.aet.cit.tum.de/), Technical University of Munich.
+> PROMPT is developed at the [Research Group Applied Education Technologies (AET)](https://aet.cit.tum.de/), Technical University of Munich.

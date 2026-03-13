@@ -2,7 +2,7 @@
 
 > This document provides a high-level overview of the **prompt-edu** GitHub organization: what we build, how the pieces fit together, and where to find what you need.
 
-PROMPT is developed at the [Research Group Applied Education Technologies (AET)](https://www.aet.cit.tum.de/) at the Technical University of Munich. It is an open-source, modular course management platform for project-based university teaching.
+PROMPT is developed at the [Research Group Applied Education Technologies (AET)](https://aet.cit.tum.de/) at the Technical University of Munich. It is an open-source, modular course management platform for project-based university teaching.
 
 ---
 
@@ -34,7 +34,7 @@ The core PROMPT platform. Contains:
 - **`docs/`** — Docusaurus documentation site
 
 **Live instance**: [https://prompt.aet.cit.tum.de/](https://prompt.aet.cit.tum.de/)
-**Docs**: [https://prompt-edu.github.io/prompt/](https://prompt-edu.github.io/prompt/) _(hosted under `ls1intum.github.io` for historical reasons; the project org is `prompt-edu`)_
+**Docs**: [prompt-edu.github.io/prompt](https://prompt-edu.github.io/prompt/) _(hosted under `ls1intum.github.io` for historical reasons; the project org is `prompt-edu`)_
 **Development guide**: [`AGENTS.md`](https://github.com/prompt-edu/prompt/blob/main/AGENTS.md)
 
 ---
@@ -171,5 +171,5 @@ For module-specific setup, see the README or AGENTS.md in the relevant repositor
 - [PROMPT AGENTS.md](https://github.com/prompt-edu/prompt/blob/main/AGENTS.md) — Full architecture, code conventions, patterns, commands
 - [PROMPT Intro Course AGENTS.md](https://github.com/prompt-edu/prompt-intro-course/blob/main/AGENTS.md) — Intro-course specific conventions
 - [PROMPT Documentation Portal](https://prompt-edu.github.io/prompt/) — User and contributor documentation
-- [AET Research Group](https://www.aet.cit.tum.de/) — Parent research group at TUM
+- [AET Research Group](https://aet.cit.tum.de/) — Parent research group at TUM
 - [Discord](https://discord.gg/eybNUqD8gf) — Community and support
