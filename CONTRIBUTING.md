@@ -107,7 +107,7 @@ Tests must pass before a PR will be merged.
 ## 💬 Community & Support
 
 - **Discord**: [Join our server](https://discord.gg/eybNUqD8gf) for real-time discussions, help, and planning.
-- **Documentation**: [ls1intum.github.io/prompt2](https://ls1intum.github.io/prompt2/)
+- **Documentation**: [ls1intum.github.io/prompt2](https://prompt-edu.github.io/prompt/)
 - **Issues**: Use the GitHub Issues tracker in the relevant repository.
 
 ---
