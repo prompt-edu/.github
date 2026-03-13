@@ -1,6 +1,6 @@
 # Welcome to prompt-edu 🙌
 
-[![Discord](https://img.shields.io/discord/1345423854160445580?style=for-the-badge&logo=discord&logoColor=white&label=Join%20our%20Community)](https://discord.gg/eybNUqD8gf)
+[![Discord](https://img.shields.io/badge/Join%20our%20Community-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/eybNUqD8gf)
 [![Live Platform](https://img.shields.io/badge/Live%20Platform-prompt.aet.cit.tum.de-blue?style=for-the-badge)](https://prompt.aet.cit.tum.de/)
 
 ## About Us 👥
