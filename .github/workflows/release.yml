@@ -1,0 +1,112 @@
+# Reusable release workflow: runs semantic-release with a token of the org
+# release GitHub App. Each calling repository keeps its own `.releaserc*`, which
+# decides what a release does (npm publish, version commit, GitHub release).
+#
+# Usage and repository settings: docs/reusable-workflows.md
+name: Release
+
+on:
+  workflow_call:
+    inputs:
+      app-client-id:
+        description: Client ID of the org release GitHub App (the RELEASE_APP_CLIENT_ID org variable).
+        required: true
+        type: string
+      node-version:
+        description: Node.js version for semantic-release. semantic-release 25 requires Node ^22.14 or >=24.10.
+        required: false
+        type: string
+        default: '24.x'
+      npm-publish:
+        description: Expose the npm token to semantic-release as NPM_TOKEN. Set to false for repositories that only create a tag and a GitHub release.
+        required: false
+        type: boolean
+        default: true
+      build-command:
+        description: Command to run after installing dependencies and before semantic-release, e.g. `yarn build`. Skipped when empty.
+        required: false
+        type: string
+        default: ''
+    secrets:
+      app-private-key:
+        description: Private key of the org release GitHub App (the RELEASE_APP_PRIVATE_KEY org secret).
+        required: true
+      npm-token:
+        description: npm token for publishing (the repository's NPM_AUTH_TOKEN secret). Only used when npm-publish is true.
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    # The App token does all writes (commits, tags, releases, comments).
+    permissions:
+      contents: read
+    steps:
+      - name: Create GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ inputs.app-client-id }}
+          private-key: ${{ secrets.app-private-key }}
+
+      # Full history and tags let semantic-release find the last release.
+      # Without persisted credentials, git pushes with the App token instead
+      # of GITHUB_TOKEN, so the push can bypass the main ruleset.
+      - name: Checkout repository
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Set up Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: ${{ inputs.node-version }}
+
+      - name: Enable Corepack
+        if: hashFiles('package.json') != ''
+        run: corepack enable
+
+      - name: Install dependencies
+        if: hashFiles('package.json') != ''
+        run: yarn install --immutable
+
+      - name: Build
+        if: inputs.build-command != ''
+        run: ${{ inputs.build-command }}
+
+      # Two release steps, so that NPM_TOKEN is not set at all (not even to an
+      # empty string) when npm publishing is disabled. npm trusted publishing
+      # (prompt-edu/prompt-lib#295) will require the variable to be absent.
+      #
+      # Repositories with a package.json run the semantic-release version locked
+      # in their own devDependencies. Others (e.g. Go modules) run pinned major
+      # versions via npx; conventional-changelog-conventionalcommits must stay on
+      # 9 while semantic-release 25 renders notes with conventional-changelog-writer 8.
+      - name: Release (with npm publishing)
+        if: inputs.npm-publish
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          NPM_TOKEN: ${{ secrets.npm-token }}
+          HAS_PACKAGE_JSON: ${{ hashFiles('package.json') != '' }}
+        run: |
+          if [ "$HAS_PACKAGE_JSON" = "true" ]; then
+            yarn semantic-release
+          else
+            npx --yes -p semantic-release@25 -p conventional-changelog-conventionalcommits@9 semantic-release
+          fi
+
+      - name: Release
+        if: ${{ !inputs.npm-publish }}
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          HAS_PACKAGE_JSON: ${{ hashFiles('package.json') != '' }}
+        run: |
+          if [ "$HAS_PACKAGE_JSON" = "true" ]; then
+            yarn semantic-release
+          else
+            npx --yes -p semantic-release@25 -p conventional-changelog-conventionalcommits@9 semantic-release
+          fi
