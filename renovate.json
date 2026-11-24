@@ -1,0 +1,24 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended", "customManagers:githubActionsVersions"],
+  "semanticCommits": "enabled",
+  "prConcurrentLimit": 3,
+  "minimumReleaseAge": "7 days",
+  "packageRules": [
+    {
+      "description": "Group all non-major updates together",
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "all non-major dependencies"
+    },
+    {
+      "description": "No minimum age for security updates",
+      "matchCategories": ["security"],
+      "minimumReleaseAge": "0 days"
+    },
+    {
+      "description": "Preset 10 needs conventional-changelog-writer 9, but semantic-release 25 still renders release notes with writer 8",
+      "matchPackageNames": ["conventional-changelog-conventionalcommits"],
+      "allowedVersions": "9.x"
+    }
+  ]
+}

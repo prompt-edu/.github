@@ -118,7 +118,7 @@ Repositories with automated releases (e.g. prompt-lib, prompt-shared-state and p
 
 A `revert` releases a patch only if the commit message contains `This reverts commit <sha>.`.
 
-**Breaking changes** create a major release (`1.2.0` → `2.0.0`), whatever the type. Mark them with `!` after the type or scope (preferred, since it is part of the PR title), or with a `BREAKING CHANGE: <description>` footer in the squash commit message. Some repositories need extra steps for a major release (e.g. a `/v2` module path in Go modules); see the repository's README.
+**Breaking changes** create a major release (`1.2.0` → `2.0.0`), whatever the type. Mark them with `!` after the type or scope (preferred, since it is part of the PR title), or with a `BREAKING CHANGE: <description>` footer typed into the squash commit message in the merge dialog. Footers in branch commits or the PR description do not end up in the squash commit. Some repositories need extra steps for a major release (e.g. a `/v2` module path in Go modules); see the repository's README.
 
 **Dependency updates** from Renovate follow the same rules: updates of runtime dependencies are titled `fix(deps): ...` and release a patch, while updates of dev dependencies and GitHub Actions are titled `chore(deps): ...` and release nothing.
 

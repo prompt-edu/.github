@@ -44,14 +44,20 @@ jobs:
     # The App token does all writes (commits, tags, releases, comments).
     permissions:
       contents: read
+    # Exact versions of the npm tools the workflow installs itself, bumped by Renovate
+    # (customManagers:githubActionsVersions). conventional-changelog-conventionalcommits
+    # must stay on 9 while semantic-release 25 renders notes with
+    # conventional-changelog-writer 8 (see renovate.json).
+    env:
+      # renovate: datasource=npm depName=semantic-release
+      SEMANTIC_RELEASE_VERSION: 25.0.9
+      # renovate: datasource=npm depName=conventional-changelog-conventionalcommits
+      CONVENTIONALCOMMITS_VERSION: 9.3.1
+      # Node.js no longer bundles Corepack from v25 on, so the workflow always
+      # installs this version, whatever node-version is.
+      # renovate: datasource=npm depName=corepack
+      COREPACK_VERSION: 0.36.0
     steps:
-      - name: Create GitHub App token
-        id: app-token
-        uses: actions/create-github-app-token@v3
-        with:
-          client-id: ${{ inputs.app-client-id }}
-          private-key: ${{ secrets.app-private-key }}
-
       # Full history and tags let semantic-release find the last release.
       # Without persisted credentials, git pushes with the App token instead
       # of GITHUB_TOKEN, so the push can bypass the main ruleset.
@@ -68,7 +74,9 @@ jobs:
 
       - name: Enable Corepack
         if: hashFiles('package.json') != ''
-        run: corepack enable
+        run: |
+          npm install --global "corepack@$COREPACK_VERSION"
+          corepack enable
 
       - name: Install dependencies
         if: hashFiles('package.json') != ''
@@ -78,14 +86,22 @@ jobs:
         if: inputs.build-command != ''
         run: ${{ inputs.build-command }}
 
+      # Created only after install and build, so that dependency install scripts
+      # and the build never run while a token that can push to main exists.
+      - name: Create GitHub App token
+        id: app-token
+        uses: actions/create-github-app-token@v3
+        with:
+          client-id: ${{ inputs.app-client-id }}
+          private-key: ${{ secrets.app-private-key }}
+
       # Two release steps, so that NPM_TOKEN is not set at all (not even to an
       # empty string) when npm publishing is disabled. npm trusted publishing
       # (prompt-edu/prompt-lib#295) will require the variable to be absent.
       #
       # Repositories with a package.json run the semantic-release version locked
-      # in their own devDependencies. Others (e.g. Go modules) run pinned major
-      # versions via npx; conventional-changelog-conventionalcommits must stay on
-      # 9 while semantic-release 25 renders notes with conventional-changelog-writer 8.
+      # in their own devDependencies. Others (e.g. Go modules) run the exact
+      # versions pinned in the job's env via npx.
       - name: Release (with npm publishing)
         if: inputs.npm-publish
         env:
@@ -96,7 +112,7 @@ jobs:
           if [ "$HAS_PACKAGE_JSON" = "true" ]; then
             yarn semantic-release
           else
-            npx --yes -p semantic-release@25 -p conventional-changelog-conventionalcommits@9 semantic-release
+            npx --yes -p "semantic-release@$SEMANTIC_RELEASE_VERSION" -p "conventional-changelog-conventionalcommits@$CONVENTIONALCOMMITS_VERSION" semantic-release
           fi
 
       - name: Release
@@ -108,5 +124,5 @@ jobs:
           if [ "$HAS_PACKAGE_JSON" = "true" ]; then
             yarn semantic-release
           else
-            npx --yes -p semantic-release@25 -p conventional-changelog-conventionalcommits@9 semantic-release
+            npx --yes -p "semantic-release@$SEMANTIC_RELEASE_VERSION" -p "conventional-changelog-conventionalcommits@$CONVENTIONALCOMMITS_VERSION" semantic-release
           fi

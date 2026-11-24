@@ -58,11 +58,14 @@ Call it from a job with the id `pr-title`. The check then shows up as **`pr-titl
 
 Runs semantic-release in a single job (`release`):
 
-1. Creates an installation token of the org release GitHub App.
-2. Checks out the full history with `persist-credentials: false`, so git pushes with the App token instead of `GITHUB_TOKEN`.
-3. Sets up Node.
-4. If the repository has a `package.json`: enables Corepack, runs `yarn install --immutable`, runs `build-command` if set, and runs `yarn semantic-release`, i.e. the version locked in the repository's own devDependencies.
-5. If there is no `package.json` (e.g. a Go module): runs `build-command` if set, and runs `semantic-release@25` with `conventional-changelog-conventionalcommits@9` via `npx`. Only the plugins bundled with semantic-release (commit-analyzer, release-notes-generator, npm, github) and the `conventionalcommits` preset are available then.
+1. Checks out the full history with `persist-credentials: false`, so git pushes with the App token instead of `GITHUB_TOKEN`.
+2. Sets up Node.
+3. If the repository has a `package.json`: installs a pinned Corepack (Node.js no longer bundles it from v25 on), enables it, and runs `yarn install --immutable`. Corepack then uses the Yarn version from the repository's `packageManager` field.
+4. Runs `build-command` if set.
+5. Creates an installation token of the org release GitHub App. This happens only now, so that dependency install scripts and the build never run while a token that can push to `main` exists.
+6. Runs semantic-release:
+   - With a `package.json`: `yarn semantic-release`, i.e. the version locked in the repository's own devDependencies.
+   - Without one (e.g. a Go module): exact versions of `semantic-release` and `conventional-changelog-conventionalcommits` (9.x) via `npx`. They are pinned in the job's `env` of `release.yml` and bumped by Renovate in this repository. Only the plugins bundled with semantic-release (commit-analyzer, release-notes-generator, npm, github) and the `conventionalcommits` preset are available then.
 
 The workflow assumes nothing about the plugins; the repository's `.releaserc.json` decides what a release does.
 
@@ -233,7 +236,9 @@ The `edited` type re-runs the check when only the title changes. No `.releaserc.
 
 For every repository that adopts the workflows:
 
-- **Merge button**: allow squash merging only (disable merge commits and rebase merging) and set the default squash commit message to **Pull request title** (`PR_TITLE`, not `COMMIT_OR_PR_TITLE`). Otherwise a PR with a single commit uses that commit's message instead of the checked title.
+- **Merge button**: allow squash merging only (disable merge commits and rebase merging) and set the default squash commit message to **Pull request title**. In the API these are two settings: `squash_merge_commit_title: PR_TITLE` and `squash_merge_commit_message: BLANK`.
+  - With `COMMIT_OR_PR_TITLE` as the title, a PR with a single commit uses that commit's message instead of the checked title.
+  - With `COMMIT_MESSAGES` or `PR_BODY` as the body, the squash commit carries text the PR title check never sees. A `BREAKING CHANGE:` footer in a branch commit or the PR description would then release a major version. With `BLANK`, only the checked title decides the release, and a deliberate footer can still be typed in the merge dialog.
 - **`main` ruleset**:
   - Require a pull request before merging.
   - Require the status check **`pr-title / conventional-commit`**. A repository that used a local PR title workflow before had a check with a different name; replace it in the ruleset.
