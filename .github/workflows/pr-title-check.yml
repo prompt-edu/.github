@@ -1,0 +1,13 @@
+# Checks this repository's own PR titles with the reusable workflow.
+name: PR Title
+
+on:
+  pull_request:
+    types: [opened, edited, reopened, synchronize]
+
+permissions:
+  pull-requests: read
+
+jobs:
+  pr-title:
+    uses: ./.github/workflows/pr-title.yml

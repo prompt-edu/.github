@@ -61,7 +61,7 @@ Shared frontend NPM packages used by all PROMPT micro-frontends:
 | `@tumaet/prompt-ui-components` | shadcn/ui-based design system: buttons, tables, dialogs, editors, page layouts                |
 | `@tumaet/prompt-shared-state`  | Domain types, enums (`Role`, `PassStatus`), Zustand stores (`useAuthStore`, `useCourseStore`) |
 
-Both packages are published to npm on GitHub release.
+Releases to npm are automated with semantic-release on merges to `main` (see [Reusable Workflows](./reusable-workflows.md)).
 
 ---
 
@@ -163,6 +163,7 @@ For module-specific setup, see the README or AGENTS.md in the relevant repositor
 - **Frontend imports** from shared_library use the `@/` alias; imports from prompt-lib use `@tumaet/prompt-ui-components` or `@tumaet/prompt-shared-state`.
 - **New course phase modules** should follow the template in `clients/template_component/` and `servers/template_server/`.
 - Generated sqlc code must be kept in sync with SQL query files after any schema or query changes.
+- **PR titles** follow [Conventional Commits](../CONTRIBUTING.md#conventional-commits), since they become the squash commit on `main` and drive automated releases.
 
 ---
 
@@ -171,5 +172,6 @@ For module-specific setup, see the README or AGENTS.md in the relevant repositor
 - [PROMPT AGENTS.md](https://github.com/prompt-edu/prompt/blob/main/AGENTS.md) — Full architecture, code conventions, patterns, commands
 - [PROMPT Intro Course AGENTS.md](https://github.com/prompt-edu/prompt-intro-course/blob/main/AGENTS.md) — Intro-course specific conventions
 - [PROMPT Documentation Portal](https://prompt-edu.github.io/prompt/) — User and contributor documentation
+- [Reusable Workflows](./reusable-workflows.md) — Shared PR title check and release workflow, and how a repository adopts them
 - [AET Research Group](https://aet.cit.tum.de/) — Parent research group at TUM
 - [Discord](https://discord.gg/eybNUqD8gf) — Community and support
